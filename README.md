@@ -1,16 +1,34 @@
-# React + Vite
+# 💰 シンプル旅行精算 (my-seisan-app)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+旅行や飲み会の「誰がいくら払ったか」を記録し、最短の手順で精算方法を導き出すシンプルなWebアプリです。
 
-Currently, two official plugins are available:
+## ✨ 主な機能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **メンバー管理**: 参加者の追加・削除
+- **支払い記録**: 
+  - 支払者とタイトルの記録
+  - **日時を自動記録**（いつの支払いか一目でわかります）
+  - 個別の対象者選択（特定のメンバーだけの支払いにも対応）
+- **自動精算ロジック**: 複雑な貸し借りを計算し、「誰が誰にいくら渡すか」を最小限の回数で表示
+- **共有機能**: 精算結果をワンクリックでクリップボードにコピー（LINE等への貼り付け用）
+- **データ**: ブラウザの LocalStorage を利用し、リロードしてもデータが消えません
+- **全クリア**: 精算が終わったらすべてのデータを一括リセット
 
-## React Compiler
+## 🚀 使い方
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **メンバーを追加**: 一緒に旅行に行く人の名前を入力します。
+2. **支払いを記録**: 「誰が」「何のために」「いくら」払ったかを入力し、対象となるメンバーにチェックを入れて追加します。
+3. **結果を確認**: 画面下部に表示される「精算方法」を確認します。
+4. **共有する**: 「結果をコピー」ボタンを押し、LINEグループなどに貼り付けてメンバーに伝えます。
+5. **クリア**: すべて終わったら「全クリア」でリセットします。
 
-## Expanding the ESLint configuration
+## 🛠 技術スタック
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** (Vite)
+- **JavaScript**
+- **LocalStorage API** (データ保存)
+- **GitHub Pages** (ホスティング)
+
+## 📝 開発の背景
+
+旅行後の面倒な計算をスマホでパッと終わらせて、その場でLINE共有するために作成しました。
