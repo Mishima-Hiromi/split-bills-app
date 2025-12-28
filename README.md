@@ -32,3 +32,48 @@
 ## 📝 開発の背景
 
 旅行後の面倒な計算をスマホでパッと終わらせて、その場でLINE共有するために作成しました。
+
+
+
+
+
+---
+
+# 💰 Easy Settle Up (seisan-app)
+
+A simple web application to record travel and party expenses and calculate the most efficient way to settle debts among members.
+
+## ✨ Key Features
+
+* **Member Management**: Easily add or remove participants.
+* **Payment Records**:
+* Record payer and item title.
+* **Automatic Timestamping**: Every payment is recorded with the date and time for clear tracking.
+* **Individual Selection**: Support for payments that apply only to specific members.
+
+
+* **Auto-Settlement Logic**: Calculates complex debts and displays "who pays whom, and how much" in the minimum number of transactions.
+* **Sharing Function**: Copy settlement results to the clipboard with one click (optimized for sharing on LINE or other messaging apps).
+* **Data Persistence**: Uses Browser LocalStorage to ensure data is not lost upon refreshing.
+* **Total Reset**: Clear all data at once after settlement is complete.
+
+## 🚀 How to Use
+
+1. **Add Members**: Enter the names of the people participating in the trip or event.
+2. **Record Payments**: Enter "Who," "For What," and "How Much," then check the members involved and add the record.
+3. **Check Results**: Review the "Settlement Method" displayed at the bottom of the screen.
+4. **Share**: Click the "Copy Results" button and paste it into your group chat (e.g., LINE).
+5. **Clear**: Once finished, use "Clear All" to reset for your next trip.
+
+## 🛠 Tech Stack
+
+* **React** (Vite)
+* **JavaScript**
+* **LocalStorage API** (Data persistence)
+* **GitHub Pages** (Hosting)
+
+## 📝 Background
+
+Created to eliminate tedious post-trip calculations on the spot and share the results via messaging apps instantly.
+
+
