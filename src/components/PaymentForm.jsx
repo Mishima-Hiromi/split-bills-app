@@ -75,7 +75,6 @@ function PaymentForm({
             display: "flex",
             flexWrap: "wrap",
             gap: "10px",
-            overflowY: "auto",
             maxHeight: "110px",
           }}
         >
