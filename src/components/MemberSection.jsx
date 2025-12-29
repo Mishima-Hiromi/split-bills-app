@@ -73,7 +73,6 @@ function MemberSection({
   const scrollContainerStyle = {
     flex: 1, // ボタンと入力欄以外のスペースを全部使う
     overflowY: "auto", // はみ出したらスクロール
-    minHeight: 0, // flex指定時に高さがバグるのを防ぐ
     display: "flex",
     flexDirection: "column",
     gap: "10px",

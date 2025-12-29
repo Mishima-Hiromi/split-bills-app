@@ -137,7 +137,7 @@ function App() {
       gridTemplateColumns: isMobile ? "none" : "1fr 1fr",
       gap: "24px",
       alignItems: "stretch",
-      height: isMobile ? "200px" : "420px",
+      height: isMobile ? "auto" : "420px",
       maxHeight: isMobile ? "950px" : "420px",
       overflowY: "auto", // 縦方向に溢れたらスクロールバーを出す
       overflowX: "hidden", // 横方向ははみ出させない
