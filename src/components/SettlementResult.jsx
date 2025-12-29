@@ -1,6 +1,6 @@
 import React from "react";
 
-function SettlementResult({ members = [], payments = [] }) {
+function SettlementResult({ isMobile, members = [], payments = [] }) {
   // データが足りない場合は表示しない
   if (!members || !payments || members.length === 0 || payments.length === 0) {
     return null;

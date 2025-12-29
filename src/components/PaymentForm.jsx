@@ -1,6 +1,7 @@
 import React from "react";
 
 function PaymentForm({
+  isMobile,
   members = [],
   payWho,
   setPayWho,

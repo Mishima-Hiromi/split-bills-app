@@ -1,7 +1,7 @@
 import React from "react";
 
 // 履歴表示専用の部品（onDelete を受け取るように追加）
-function HistoryList({ payments, onDelete }) {
+function HistoryList({ isMobile, payments, onDelete }) {
   if (payments.length === 0) {
     return (
       <section style={sectionStyle}>

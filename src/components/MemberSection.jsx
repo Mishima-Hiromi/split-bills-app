@@ -1,6 +1,7 @@
 import React from "react";
 
 function MemberSection({
+  isMobile,
   members,
   payments,
   nameInput,
@@ -9,29 +10,144 @@ function MemberSection({
   onDelete,
   onClearAll,
 }) {
+  // スタイル定義
+
+  const sectionStyle = {
+    padding: "20px",
+    border: "1px solid #444",
+    borderRadius: "12px",
+    backgroundColor: "#222",
+    height: "100%",
+    boxSizing: "border-box",
+    display: "flex",
+    flexDirection: "column",
+    overflow: "hidden",
+    minHeight: 0,
+  };
+
+  const inputStyle = {
+    backgroundColor: "transparent",
+    border: "none",
+    borderBottom: "2px solid #555",
+    color: "#fff",
+    fontSize: "1.1rem",
+    padding: "2px 5px",
+    outline: "none",
+    flex: 1,
+  };
+
+  const addBtnStyle = {
+    padding: "5px 15px",
+    cursor: "pointer",
+    backgroundColor: "#2196f3",
+  };
+
+  const memberRowStyle = {
+    display: "flex",
+    alignItems: "center",
+    backgroundColor: "#333",
+    padding: "10px 15px",
+    borderRadius: "8px",
+    gap: "15px",
+  };
+
+  const amountGroupStyle = {
+    display: "flex",
+    gap: "20px",
+    fontSize: "0.85rem",
+    textAlign: "right",
+  };
+
+  const amountDetailStyle = { display: "flex", flexDirection: "column" };
+
+  const labelStyle = { color: "#888", fontSize: "0.7rem", marginBottom: "2px" };
+
+  const deleteBtnStyle = {
+    border: "none",
+    background: "none",
+    color: "#666",
+    cursor: "pointer",
+    fontSize: "1rem",
+  };
+
+  const scrollContainerStyle = {
+    flex: 1, // ボタンと入力欄以外のスペースを全部使う
+    overflowY: "auto", // はみ出したらスクロール
+    minHeight: 0, // flex指定時に高さがバグるのを防ぐ
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    paddingRight: "5px",
+  };
+
+  // クリアボタン
+  const clearBtnStyle = {
+    backgroundColor: "transparent",
+    color: "#ff5252", // 警告の赤色
+    border: "1px solid #ff5252",
+    borderRadius: "4px",
+    padding: "4px 8px",
+    fontSize: "0.75rem",
+    cursor: "pointer",
+    transition: "all 0.2s",
+  };
+
+  // ボタン2つを横に並べるための囲み
+  const buttonGroupStyle = {
+    display: "flex",
+    gap: "10px",
+    width: isMobile ? "100%" : "auto", // スマホなら横幅いっぱい
+  };
+
+  // ボタン共通のレスポンシブスタイル
+  const getResponsiveBtnStyle = (baseStyle) => {
+    const isClear = baseStyle === clearBtnStyle;
+    return {
+      ...baseStyle,
+      flex: isMobile ? 1 : "none", // スマホなら均等に幅を分ける
+      height: isMobile ? "45px" : "auto", // スマホで押しやすく少し高く
+      borderRadius: "6px",
+
+      color: isClear ? "#ff5252" : "white",
+      border: isClear ? "1px solid #ff5252" : "none",
+      backgroundColor: isClear ? "transparent" : baseStyle.backgroundColor,
+      fontWeight: "bold",
+    };
+  };
+
   return (
     <section style={sectionStyle}>
       <h2 style={{ marginTop: "0px", marginBottom: "20px" }}>メンバー管理</h2>
 
-      <div style={{ display: "flex", gap: "10px", marginBottom: "15px" }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "10px",
+          marginBottom: "15px",
+          flexDirection: isMobile ? "column" : "row",
+        }}
+      >
         <input
           style={inputStyle}
           placeholder="名前を入力"
           value={nameInput}
           onChange={(e) => setNameInput(e.target.value)}
         />
+        <div style={buttonGroupStyle}>
+          {/* メンバー追加ボタン */}
+          <button onClick={onAdd} style={getResponsiveBtnStyle(addBtnStyle)}>
+            メンバーを追加
+          </button>
 
-        {/* メンバー追加ボタン */}
-        <button onClick={onAdd} style={addBtnStyle}>
-          メンバーを追加
-        </button>
-
-        {/* 全クリアボタン */}
-        <button onClick={onClearAll} style={clearBtnStyle}>
-          全クリア
-        </button>
+          {/* 全クリアボタン */}
+          <button
+            onClick={onClearAll}
+            style={getResponsiveBtnStyle(clearBtnStyle)}
+          >
+            全クリア
+          </button>
+        </div>
       </div>
-
       <div style={scrollContainerStyle}>
         {members.map((name, index) => {
           const paid = payments
@@ -74,87 +190,5 @@ function MemberSection({
     </section>
   );
 }
-
-// スタイル定義
-
-const sectionStyle = {
-  padding: "20px",
-  border: "1px solid #444",
-  borderRadius: "12px",
-  backgroundColor: "#222",
-  height: "100%",
-  boxSizing: "border-box",
-  display: "flex",
-  flexDirection: "column",
-  overflow: "hidden",
-  minHeight: 0,
-};
-
-const inputStyle = {
-  backgroundColor: "transparent",
-  border: "none",
-  borderBottom: "2px solid #555",
-  color: "#fff",
-  fontSize: "1.1rem",
-  padding: "2px 5px",
-  outline: "none",
-  flex: 1,
-};
-
-const addBtnStyle = {
-  padding: "5px 15px",
-  cursor: "pointer",
-  backgroundColor: "#2196f3",
-};
-
-const memberRowStyle = {
-  display: "flex",
-  alignItems: "center",
-  backgroundColor: "#333",
-  padding: "10px 15px",
-  borderRadius: "8px",
-  gap: "15px",
-};
-
-const amountGroupStyle = {
-  display: "flex",
-  gap: "20px",
-  fontSize: "0.85rem",
-  textAlign: "right",
-};
-
-const amountDetailStyle = { display: "flex", flexDirection: "column" };
-
-const labelStyle = { color: "#888", fontSize: "0.7rem", marginBottom: "2px" };
-
-const deleteBtnStyle = {
-  border: "none",
-  background: "none",
-  color: "#666",
-  cursor: "pointer",
-  fontSize: "1rem",
-};
-
-const scrollContainerStyle = {
-  flex: 1, // ボタンと入力欄以外のスペースを全部使う
-  overflowY: "auto", // はみ出したらスクロール
-  minHeight: 0, // flex指定時に高さがバグるのを防ぐ
-  display: "flex",
-  flexDirection: "column",
-  gap: "10px",
-  paddingRight: "5px",
-};
-
-// クリアボタン
-const clearBtnStyle = {
-  backgroundColor: "transparent",
-  color: "#ff5252", // 警告の赤色
-  border: "1px solid #ff5252",
-  borderRadius: "4px",
-  padding: "4px 8px",
-  fontSize: "0.75rem",
-  cursor: "pointer",
-  transition: "all 0.2s",
-};
 
 export default MemberSection;
