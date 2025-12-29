@@ -86,56 +86,64 @@ function PaymentForm({
           marginTop: "0px",
           marginBottom: "10px",
           fontSize: "1.2rem",
-          maxHeight: "50px",
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          alignItems: isMobile ? "flex-start" : "center",
+          gap: isMobile ? "10px" : "0px",
+          flexWrap: "wrap",
         }}
       >
-        {/* 誰が */}
-        <select
-          style={getSelectStyle(payWho === "")}
-          value={payWho}
-          onChange={(e) => setPayWho(e.target.value)}
-        >
-          <option value="" style={{ color: "#444" }}>
-            名前を入力
-          </option>
-          {members.map((name, index) => (
-            <option
-              key={index}
-              value={name}
-              style={{
-                backgroundColor: "#222",
-                color: "#fff",
-                textAlign: "left",
-              }}
-            >
-              {name}
+        <div>
+          {/* 誰が */}
+          <select
+            style={getSelectStyle(payWho === "")}
+            value={payWho}
+            onChange={(e) => setPayWho(e.target.value)}
+          >
+            <option value="" style={{ color: "#444" }}>
+              名前を入力
             </option>
-          ))}
-        </select>
-        <span> さんが、</span>
-
-        {/* 何に */}
-        <input
-          style={{ ...inputStyle, width: "100px", textAlign: "center" }}
-          placeholder="何に"
-          value={payTitle}
-          onChange={(e) => setPayTitle(e.target.value)}
-        />
-        <span> に、</span>
-
-        {/* いくら */}
-        <input
-          type="number"
-          style={{ ...inputStyle, width: "80px", textAlign: "center" }}
-          placeholder="金額"
-          value={payAmount}
-          onChange={(e) => setPayAmount(e.target.value)}
-        />
-        <span> 円支払った。</span>
+            {members.map((name, index) => (
+              <option
+                key={index}
+                value={name}
+                style={{
+                  backgroundColor: "#222",
+                  color: "#fff",
+                  textAlign: "left",
+                }}
+              >
+                {name}
+              </option>
+            ))}
+          </select>
+          <span> さんが、</span>
+        </div>
+        <div>
+          {/* 何に */}
+          <input
+            style={{ ...inputStyle, width: "100px", textAlign: "center" }}
+            placeholder="何に"
+            value={payTitle}
+            onChange={(e) => setPayTitle(e.target.value)}
+          />
+          <span> に、</span>
+        </div>
+        <div>
+          {/* いくら */}
+          <input
+            type="number"
+            style={{ ...inputStyle, width: "80px", textAlign: "center" }}
+            placeholder="金額"
+            value={payAmount}
+            onChange={(e) => setPayAmount(e.target.value)}
+          />
+          <span> 円支払った。</span>
+        </div>
       </div>
 
-      <div style={{ marginBottom: "20px", marginTop: "20px" }}>
-        <p style={{ fontSize: "0.8rem", color: "#aaa", marginBottom: "8px" }}>
+      <div style={{ marginBottom: "20px", marginTop: "30px" }}>
+        <p style={{ fontSize: "0.8rem", color: "#aaa", marginBottom: "1px" }}>
           支払い対象者：
         </p>
         <div

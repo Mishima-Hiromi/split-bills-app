@@ -57,7 +57,7 @@ function HistoryList({ isMobile, payments, onDelete }) {
         style={{
           display: "flex",
           flexDirection: "column",
-          height: payments.length <= 3 ? "auto" : isMobile ? "100px" : "300px",
+          height: payments.length <= 3 ? "auto" : isMobile ? "300px" : "300px",
           overflowY: "auto",
         }}
       >
