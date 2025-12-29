@@ -113,21 +113,22 @@ function App() {
     container: {
       display: "flex",
       justifyContent: "center",
-      width: "100vw",
-      padding: "0", //isMobile ? "10px 10px 40px 10px" : "20px 0px",
+      width: "100%",
+      boxSizing: "border-box",
+      padding: isMobile ? "10px 20px 50px 20px" : "40px 0px",
       color: "white",
       backgroundColor: "#1a1a1a",
       minHeight: "100vh",
       overflowX: "hidden",
     },
     card: {
-      width: "100%",
+      width: isMobile ? "calc(100% - 10px)" : "100%",
       maxWidth: "1200px",
       display: "flex",
       flexDirection: "column",
       gap: "24px",
+      padding: "0",
       boxSizing: "border-box",
-      padding: isMobile ? "0 10px" : "0",
     },
     // 上段（入力・設定）を横並びにするためのコンテナ
     topRow: {
@@ -138,7 +139,8 @@ function App() {
       alignItems: "stretch",
       height: isMobile ? "auto" : "420px",
       maxHeight: isMobile ? "none" : "420px",
-      overflow: isMobile ? "visible" : "hidden",
+      overflowY: "auto", // 縦方向に溢れたらスクロールバーを出す
+      overflowX: "hidden", // 横方向ははみ出させない
     },
     // 下段を縦に並べるためのコンテナ
     bottomColumn: {

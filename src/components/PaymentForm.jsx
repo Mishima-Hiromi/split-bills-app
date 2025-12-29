@@ -135,13 +135,13 @@ function PaymentForm({
         </p>
         <div
           style={{
-            flex: 1, // ボタンと入力欄以外のスペースを全部使う
-            overflowY: "auto", // はみ出したらスクロール
-            minHeight: "0", // flex指定時に高さがバグるのを防ぐ
             display: "flex",
             flexWrap: "wrap",
             gap: "10px",
-            maxHeight: "110px",
+            maxHeight: "110px", // ここで高さを制限
+            overflowY: "auto", // 溢れたらスクロールする
+            width: "100%", // 横幅を固定する
+            boxSizing: "border-box",
           }}
         >
           {members.map((name, index) => (
