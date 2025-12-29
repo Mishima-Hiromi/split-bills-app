@@ -113,8 +113,8 @@ function App() {
     container: {
       display: "flex",
       justifyContent: "center",
-      width: "100%",
-      padding: isMobile ? "10px 10px 40px 10px" : "20px 0px",
+      width: "100vw",
+      padding: "0", //isMobile ? "10px 10px 40px 10px" : "20px 0px",
       color: "white",
       backgroundColor: "#1a1a1a",
       minHeight: "100vh",

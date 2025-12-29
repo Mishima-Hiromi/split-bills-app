@@ -25,6 +25,7 @@ function PaymentForm({
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
+    flexWrap: "wrap",
   };
   const inputStyle = {
     backgroundColor: "transparent",
