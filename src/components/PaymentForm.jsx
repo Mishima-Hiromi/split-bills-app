@@ -142,8 +142,15 @@ function PaymentForm({
         </div>
       </div>
 
-      <div style={{ marginBottom: "20px", marginTop: "30px" }}>
-        <p style={{ fontSize: "0.8rem", color: "#aaa", marginBottom: "1px" }}>
+      <div style={{ marginBottom: "10px", marginTop: "10px" }}>
+        <p
+          style={{
+            fontSize: "0.8rem",
+            color: "#aaa",
+            marginBottom: "8px",
+            marginTop: "8px",
+          }}
+        >
           支払い対象者：
         </p>
         <div
