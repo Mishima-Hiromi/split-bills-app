@@ -13,6 +13,70 @@ function PaymentForm({
   setTargetMembers,
   onAdd,
 }) {
+  // --- スタイル定義 ---
+  const sectionStyle = {
+    padding: "20px",
+    border: "1px solid #444",
+    borderRadius: "12px",
+    backgroundColor: "#222",
+    height: isMobile ? "auto" : "100%",
+    minHeight: isMobile ? "350px" : "0",
+    boxSizing: "border-box",
+    display: "flex",
+    flexDirection: "column",
+    overflow: "hidden",
+  };
+  const inputStyle = {
+    backgroundColor: "transparent",
+    border: "none",
+    borderBottom: "2px solid #555",
+    color: "#fff",
+    fontSize: "1.1rem",
+    padding: "2px 5px",
+    outline: "none",
+    flex: 1,
+    textAlign: "center",
+  };
+  const badgeStyle = {
+    backgroundColor: "#444",
+    padding: "5px 10px",
+    borderRadius: "20px",
+    fontSize: "0.9rem",
+    display: "flex",
+    alignItems: "center",
+    gap: "5px",
+    cursor: "pointer",
+  };
+  const submitBtnStyle = {
+    width: "100%",
+    padding: "15px",
+    backgroundColor: "#2196f3",
+    color: "white",
+    border: "none",
+    borderRadius: "8px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    marginTop: "auto",
+  };
+
+  const getSelectStyle = (isEmpty) => ({
+    ...inputStyle,
+    textAlign: "left",
+    cursor: "pointer",
+    backgroundColor: "#333",
+    borderRadius: "4px",
+    padding: "4px 25px 4px 10px",
+    appearance: "none",
+    WebkitAppearance: "none",
+    MozAppearance: "none",
+    backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="${
+      isEmpty ? "%23888" : "white"
+    }"><path d="M7 10l5 5 5-5z"/></svg>')`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "right 8px center",
+    color: isEmpty ? "#888" : "#fff", // ★ 空ならグレー、選ばれたら白
+  });
+
   return (
     <section style={sectionStyle}>
       <h2 style={{ marginTop: "0px", marginBottom: "20px" }}>支払いを入力</h2>
@@ -104,69 +168,5 @@ function PaymentForm({
     </section>
   );
 }
-
-// --- スタイル定義 ---
-const sectionStyle = {
-  padding: "20px",
-  border: "1px solid #444",
-  borderRadius: "12px",
-  backgroundColor: "#222",
-  height: isMobile ? "auto" : "100%",
-  minHeight: isMobile ? "350px" : "0",
-  boxSizing: "border-box",
-  display: "flex",
-  flexDirection: "column",
-  overflow: "hidden",
-};
-const inputStyle = {
-  backgroundColor: "transparent",
-  border: "none",
-  borderBottom: "2px solid #555",
-  color: "#fff",
-  fontSize: "1.1rem",
-  padding: "2px 5px",
-  outline: "none",
-  flex: 1,
-  textAlign: "center",
-};
-const badgeStyle = {
-  backgroundColor: "#444",
-  padding: "5px 10px",
-  borderRadius: "20px",
-  fontSize: "0.9rem",
-  display: "flex",
-  alignItems: "center",
-  gap: "5px",
-  cursor: "pointer",
-};
-const submitBtnStyle = {
-  width: "100%",
-  padding: "15px",
-  backgroundColor: "#2196f3",
-  color: "white",
-  border: "none",
-  borderRadius: "8px",
-  fontWeight: "bold",
-  cursor: "pointer",
-  marginTop: "auto",
-};
-
-const getSelectStyle = (isEmpty) => ({
-  ...inputStyle,
-  textAlign: "left",
-  cursor: "pointer",
-  backgroundColor: "#333",
-  borderRadius: "4px",
-  padding: "4px 25px 4px 10px",
-  appearance: "none",
-  WebkitAppearance: "none",
-  MozAppearance: "none",
-  backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="${
-    isEmpty ? "%23888" : "white"
-  }"><path d="M7 10l5 5 5-5z"/></svg>')`,
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "right 8px center",
-  color: isEmpty ? "#888" : "#fff", // ★ 空ならグレー、選ばれたら白
-});
 
 export default PaymentForm;
