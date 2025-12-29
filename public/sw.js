@@ -1,4 +1,4 @@
-const CACHE_NAME = "split-bill-app-v2.06";
+const CACHE_NAME = "split-bill-app-v2.05";
 // オフラインで表示するために必要なファイルの一覧
 const urlsToCache = ["index.html", "manifest.json", "logo512.png"];
 
