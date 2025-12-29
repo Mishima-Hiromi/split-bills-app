@@ -142,7 +142,7 @@ function PaymentForm({
         </div>
       </div>
 
-      <div style={{ marginBottom: "10px" }}>
+      <div style={{ marginBottom: "8px" }}>
         <p
           style={{
             fontSize: "0.8rem",
