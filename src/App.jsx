@@ -114,10 +114,10 @@ function App() {
       display: "flex",
       justifyContent: "center",
       width: "100%",
+      padding: isMobile ? "10px 10px 40px 10px" : "20px 0px",
       color: "white",
       backgroundColor: "#1a1a1a",
       minHeight: "100vh",
-      padding: isMobile ? "10px" : "20px 0px",
     },
     card: {
       width: "100%",
@@ -143,6 +143,7 @@ function App() {
       display: "flex",
       flexDirection: "column",
       gap: "24px",
+      marginBottom: isMobile ? "40px" : "0px",
     },
   };
 
