@@ -134,7 +134,7 @@ function PaymentForm({
         <span> 円支払った。</span>
       </div>
 
-      <div style={{ marginBottom: "20px" }}>
+      <div style={{ marginBottom: "10px", marginTop: "10px" }}>
         <p style={{ fontSize: "0.8rem", color: "#aaa", marginBottom: "8px" }}>
           支払い対象者：
         </p>
@@ -143,7 +143,7 @@ function PaymentForm({
             display: "flex",
             flexWrap: "wrap",
             gap: "10px",
-            maxHeight: isMobile ? "70px" : "110px",
+            maxHeight: isMobile ? "80px" : "110px",
             overflowY: "auto", // 溢れたらスクロールする
             width: "100%", // 横幅を固定する
             boxSizing: "border-box",
