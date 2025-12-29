@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.Hiro.splitbill.twa",
+        "sha256_cert_fingerprints": ["C6:EE:50:1A:65:53:BA:0B:B9:5A:8F:87:53:3F:AA:54:AD:6D:D5:14:9F:FE:BA:8F:1A:D8:9B:D4:55:B4:DE:6B"]
+      }
+    }]
