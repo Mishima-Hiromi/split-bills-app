@@ -1,12 +1,11 @@
 const CACHE_NAME = "split-bill-app-v1";
 // オフラインで表示するために必要なファイルの一覧
-const urlsToCache = ["./", "./index.html", "./manifest.json", "./logo512.png"];
+const urlsToCache = ["index.html", "manifest.json", "logo512.png"];
 
 // ① インストール時にファイルを保存
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log("Opened cache");
       return cache.addAll(urlsToCache);
     })
   );

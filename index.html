@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>my-seisan-app</title>
-    <link rel="manifest" href="./manifest.json" />
+    <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#1a1a1a" />
     <link rel="apple-touch-icon" href="./logo192.png" />
   </head>
@@ -16,7 +16,7 @@
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
           navigator.serviceWorker
-            .register("./sw.js")
+            .register("sw.js")
             .then((reg) => console.log("Offline support ready!", reg))
             .catch((err) => console.log("SW registration failed", err));
         });
