@@ -1,7 +1,13 @@
 {
   "short_name": "清算マネージャー",
   "name": "split bill - 精算マネージャー",
+  "description": "簡単操作で割り勘やグループ精算を管理できるアプリです。",
   "icons": [
+    {
+      "src": "logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
     {
       "src": "logo512.png",
       "type": "image/png",
@@ -12,5 +18,13 @@
   "display": "standalone",
   "theme_color": "#1a1a1a",
   "background_color": "#1a1a1a",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "screenshots": [
+    {
+      "src": "screenshot1.png",
+      "sizes": "795x1780",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
 }
