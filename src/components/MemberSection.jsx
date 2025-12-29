@@ -77,7 +77,7 @@ function MemberSection({
     flexDirection: "column",
     gap: "10px",
     paddingRight: "5px",
-    minheight: "950px",
+    height: members.length <= 4 ? "auto" : isMobile ? "300px" : "300px",
   };
 
   // クリアボタン
