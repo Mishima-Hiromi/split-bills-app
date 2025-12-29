@@ -118,6 +118,7 @@ function App() {
       color: "white",
       backgroundColor: "#1a1a1a",
       minHeight: "100vh",
+      overflowX: "hidden",
     },
     card: {
       width: "100%",
@@ -125,6 +126,7 @@ function App() {
       display: "flex",
       flexDirection: "column",
       gap: "24px",
+      boxSizing: "border-box",
       padding: isMobile ? "0 10px" : "0",
     },
     // 上段（入力・設定）を横並びにするためのコンテナ
