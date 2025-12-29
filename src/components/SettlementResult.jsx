@@ -78,7 +78,7 @@ function SettlementResult({ isMobile, members = [], payments = [] }) {
     padding: "20px",
     border: "2px solid #2196f3",
     borderRadius: "12px",
-    height: results.length === 4 ? "auto" : isMobile ? "250px" : "250px",
+    height: results.length <= 4 ? "auto" : isMobile ? "250px" : "250px",
     overflowY: "auto", // ここでスクロール
   };
 

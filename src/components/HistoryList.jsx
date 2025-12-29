@@ -8,7 +8,7 @@ function HistoryList({ isMobile, payments, onDelete }) {
     border: "1px solid #444",
     borderRadius: "12px",
     backgroundColor: "#222",
-    height: payments.length === 3 ? "auto" : isMobile ? "100px" : "300px",
+    height: payments.length <= 3 ? "auto" : isMobile ? "100px" : "300px",
     overflowY: "auto", // ここでスクロール
   };
 

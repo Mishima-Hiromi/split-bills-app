@@ -138,7 +138,7 @@ function PaymentForm({
             display: "flex",
             flexWrap: "wrap",
             gap: "10px",
-            maxHeight: "110px", // ここで高さを制限
+            maxHeight: isMobile ? "70px" : "110px",
             overflowY: "auto", // 溢れたらスクロールする
             width: "100%", // 横幅を固定する
             boxSizing: "border-box",
