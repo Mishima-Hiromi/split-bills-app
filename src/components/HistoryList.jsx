@@ -8,8 +8,6 @@ function HistoryList({ isMobile, payments, onDelete }) {
     border: "1px solid #444",
     borderRadius: "12px",
     backgroundColor: "#222",
-    height: payments.length <= 3 ? "auto" : isMobile ? "100px" : "300px",
-    overflowY: "auto", // ここでスクロール
   };
 
   const titleStyle = {
@@ -55,7 +53,14 @@ function HistoryList({ isMobile, payments, onDelete }) {
   return (
     <section style={sectionStyle}>
       <h3 style={titleStyle}>支払い履歴</h3>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          height: payments.length <= 3 ? "auto" : isMobile ? "100px" : "300px",
+          overflowY: "auto",
+        }}
+      >
         {payments.map((p) => (
           <div key={p.id} style={itemStyle}>
             <div style={{ flex: 1 }}>

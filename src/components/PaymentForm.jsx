@@ -82,7 +82,12 @@ function PaymentForm({
     <section style={sectionStyle}>
       <h2 style={{ marginTop: "0px", marginBottom: "20px" }}>支払いを入力</h2>
       <div
-        style={{ marginTop: "0px", marginBottom: "15px", fontSize: "1.2rem" }}
+        style={{
+          marginTop: "0px",
+          marginBottom: "10px",
+          fontSize: "1.2rem",
+          maxHeight: "50px",
+        }}
       >
         {/* 誰が */}
         <select

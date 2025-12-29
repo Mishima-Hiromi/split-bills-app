@@ -78,8 +78,6 @@ function SettlementResult({ isMobile, members = [], payments = [] }) {
     padding: "20px",
     border: "2px solid #2196f3",
     borderRadius: "12px",
-    height: results.length <= 4 ? "auto" : isMobile ? "250px" : "250px",
-    overflowY: "auto", // ここでスクロール
   };
 
   const resultRowStyle = {
@@ -124,7 +122,15 @@ function SettlementResult({ isMobile, members = [], payments = [] }) {
         </button>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          height: results.length <= 4 ? "auto" : isMobile ? "200px" : "200px",
+          overflowY: "auto",
+        }}
+      >
         {results.length > 0 ? (
           results.map((res, i) => (
             <div key={i} style={resultRowStyle}>
