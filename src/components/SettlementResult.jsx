@@ -1,11 +1,6 @@
 import React from "react";
 
 function SettlementResult({ isMobile, members = [], payments = [] }) {
-  // データが足りない場合は表示しない
-  if (!members || !payments || members.length === 0 || payments.length === 0) {
-    return null;
-  }
-
   // --- 1. 全員の「立て替え額」「利用額」「収支」を計算 ---
   const stats = members.map((name) => {
     // 自分が支払った合計
@@ -78,6 +73,41 @@ function SettlementResult({ isMobile, members = [], payments = [] }) {
 
   if (results.length === 0 && stats.every((s) => s.paid === 0)) return null;
 
+  // --- スタイル  ---
+  const sectionStyle = {
+    padding: "20px",
+    border: "2px solid #2196f3",
+    borderRadius: "12px",
+    height: results.length === 4 ? "auto" : isMobile ? "250px" : "250px",
+    overflowY: "auto", // ここでスクロール
+  };
+
+  const resultRowStyle = {
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    padding: "8px 0",
+    borderBottom: "1px solid #334155",
+  };
+
+  const amountStyle = {
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    color: "#fbbf24",
+    marginLeft: "auto",
+  };
+
+  const shareBtnStyle = {
+    backgroundColor: "#4caf50",
+    color: "white",
+    border: "none",
+    borderRadius: "6px",
+    padding: "6px 12px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    fontSize: "0.8rem",
+  };
+
   return (
     <section style={sectionStyle}>
       <div
@@ -115,38 +145,5 @@ function SettlementResult({ isMobile, members = [], payments = [] }) {
     </section>
   );
 }
-
-// --- スタイル  ---
-const sectionStyle = {
-  padding: "20px",
-  border: "2px solid #2196f3",
-  borderRadius: "12px",
-};
-
-const resultRowStyle = {
-  display: "flex",
-  alignItems: "center",
-  gap: "8px",
-  padding: "8px 0",
-  borderBottom: "1px solid #334155",
-};
-
-const amountStyle = {
-  fontSize: "1.2rem",
-  fontWeight: "bold",
-  color: "#fbbf24",
-  marginLeft: "auto",
-};
-
-const shareBtnStyle = {
-  backgroundColor: "#4caf50",
-  color: "white",
-  border: "none",
-  borderRadius: "6px",
-  padding: "6px 12px",
-  fontWeight: "bold",
-  cursor: "pointer",
-  fontSize: "0.8rem",
-};
 
 export default SettlementResult;

@@ -138,7 +138,7 @@ function App() {
       gap: "24px",
       alignItems: "stretch",
       height: isMobile ? "auto" : "420px",
-      maxHeight: isMobile ? "none" : "420px",
+      maxHeight: isMobile ? "calc(100vh - 200px)" : "420px",
       overflowY: "auto", // 縦方向に溢れたらスクロールバーを出す
       overflowX: "hidden", // 横方向ははみ出させない
     },
@@ -148,6 +148,7 @@ function App() {
       flexDirection: "column",
       gap: "24px",
       marginBottom: isMobile ? "40px" : "0px",
+      width: "100%",
     },
   };
 

@@ -19,7 +19,7 @@ function PaymentForm({
     border: "1px solid #444",
     borderRadius: "12px",
     backgroundColor: "#222",
-    height: isMobile ? "auto" : "100%",
+    height: "100%",
     minHeight: isMobile ? "350px" : "0",
     boxSizing: "border-box",
     display: "flex",

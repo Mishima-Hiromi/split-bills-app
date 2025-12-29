@@ -2,6 +2,45 @@ import React from "react";
 
 // 履歴表示専用の部品（onDelete を受け取るように追加）
 function HistoryList({ isMobile, payments, onDelete }) {
+  // --- スタイル定義 ---
+  const sectionStyle = {
+    padding: "20px",
+    border: "1px solid #444",
+    borderRadius: "12px",
+    backgroundColor: "#222",
+    height: payments.length === 3 ? "auto" : isMobile ? "100px" : "300px",
+    overflowY: "auto", // ここでスクロール
+  };
+
+  const titleStyle = {
+    marginTop: 0,
+    marginBottom: "15px",
+    fontSize: "1.1rem",
+  };
+
+  const itemStyle = {
+    display: "flex",
+    alignItems: "center",
+    borderBottom: "1px solid #333",
+    padding: "15px 0",
+    gap: "10px",
+  };
+
+  const deleteBtnStyle = {
+    backgroundColor: "transparent",
+    border: "1px solid #555",
+    color: "#666",
+    borderRadius: "4px",
+    width: "28px",
+    height: "28px",
+    cursor: "pointer",
+    fontSize: "18px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "all 0.2s",
+  };
+
   if (payments.length === 0) {
     return (
       <section style={sectionStyle}>
@@ -53,42 +92,5 @@ function HistoryList({ isMobile, payments, onDelete }) {
     </section>
   );
 }
-
-// --- スタイル定義 ---
-const sectionStyle = {
-  padding: "20px",
-  border: "1px solid #444",
-  borderRadius: "12px",
-  backgroundColor: "#222",
-};
-
-const titleStyle = {
-  marginTop: 0,
-  marginBottom: "15px",
-  fontSize: "1.1rem",
-};
-
-const itemStyle = {
-  display: "flex",
-  alignItems: "center",
-  borderBottom: "1px solid #333",
-  padding: "15px 0",
-  gap: "10px",
-};
-
-const deleteBtnStyle = {
-  backgroundColor: "transparent",
-  border: "1px solid #555",
-  color: "#666",
-  borderRadius: "4px",
-  width: "28px",
-  height: "28px",
-  cursor: "pointer",
-  fontSize: "18px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  transition: "all 0.2s",
-};
 
 export default HistoryList;
