@@ -4,41 +4,6 @@ import PaymentForm from "./components/PaymentForm";
 import SettlementResult from "./components/SettlementResult";
 import HistoryList from "./components/HistoryList";
 
-const styles = {
-  container: {
-    display: "flex",
-    justifyContent: "center",
-    width: "100%",
-    padding: "20px 0px",
-    color: "white",
-    backgroundColor: "#1a1a1a",
-    minHeight: "100vh",
-  },
-  card: {
-    width: "100%",
-    maxWidth: "1200px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "24px",
-  },
-  // 上段（入力・設定）を横並びにするためのコンテナ
-  topRow: {
-    display: "grid", // 左右 1:1 の比率で固定
-    gridTemplateColumns: "1fr 1fr",
-    gap: "24px",
-    alignItems: "stretch",
-    height: "420px",
-    maxHeight: "420px",
-    overflow: "hidden",
-  },
-  // 下段を縦に並べるためのコンテナ
-  bottomColumn: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "24px",
-  },
-};
-
 function App() {
   // --- 状態管理 (State) ---
   const [members, setMembers] = useState(() => {
@@ -57,11 +22,20 @@ function App() {
   const [payAmount, setPayAmount] = useState("");
   const [targetMembers, setTargetMembers] = useState([]);
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); //スマホ判定
+
   // --- 自動保存 (Effect) ---
   useEffect(() => {
     localStorage.setItem("trip_members", JSON.stringify(members));
     localStorage.setItem("trip_payments", JSON.stringify(payments));
   }, [members, payments]);
+
+  // 画面サイズ変更で自動更新
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // メンバーリストが変わったら、入力フォームの選択肢を初期化
   useEffect(() => {
@@ -135,12 +109,50 @@ function App() {
     alert("データをすべてクリアしました");
   };
 
+  const styles = {
+    container: {
+      display: "flex",
+      justifyContent: "center",
+      width: "100%",
+      color: "white",
+      backgroundColor: "#1a1a1a",
+      minHeight: "100vh",
+      padding: isMobile ? "10px" : "20px 0px",
+    },
+    card: {
+      width: "100%",
+      maxWidth: "1200px",
+      display: "flex",
+      flexDirection: "column",
+      gap: "24px",
+      padding: isMobile ? "0 10px" : "0",
+    },
+    // 上段（入力・設定）を横並びにするためのコンテナ
+    topRow: {
+      display: isMobile ? "flex" : "grid", // スマホはflexで縦並び、PCはgridで横並び
+      flexDirection: isMobile ? "column" : "row",
+      gridTemplateColumns: isMobile ? "none" : "1fr 1fr",
+      gap: "24px",
+      alignItems: "stretch",
+      height: isMobile ? "auto" : "420px",
+      maxHeight: isMobile ? "none" : "420px",
+      overflow: isMobile ? "visible" : "hidden",
+    },
+    // 下段を縦に並べるためのコンテナ
+    bottomColumn: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "24px",
+    },
+  };
+
   return (
     <div style={styles.container}>
       <div style={styles.card}>
         <div style={styles.topRow}>
           {/* 1. 支払い入力 */}
           <PaymentForm
+            isMobile={isMobile}
             members={members}
             payWho={payWho}
             setPayWho={setPayWho}
@@ -155,6 +167,7 @@ function App() {
 
           {/* 2. メンバー管理 */}
           <MemberSection
+            isMobile={isMobile}
             members={members}
             payments={payments}
             nameInput={nameInput}
@@ -167,9 +180,17 @@ function App() {
 
         <div style={styles.bottomColumn}>
           {/* 3. 精算結果 (重要なので履歴より上か、見えやすい位置に) */}
-          <SettlementResult members={members} payments={payments} />
+          <SettlementResult
+            isMobile={isMobile}
+            members={members}
+            payments={payments}
+          />
           {/* 4. 履歴一覧 */}
-          <HistoryList payments={payments} onDelete={deletePayment} />
+          <HistoryList
+            isMobile={isMobile}
+            payments={payments}
+            onDelete={deletePayment}
+          />
         </div>
       </div>
     </div>
