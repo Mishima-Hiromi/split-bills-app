@@ -142,7 +142,7 @@ function PaymentForm({
         </div>
       </div>
 
-      <div style={{ marginBottom: "10px", marginTop: "10px" }}>
+      <div style={{ marginBottom: "10px" }}>
         <p
           style={{
             fontSize: "0.8rem",
@@ -158,7 +158,7 @@ function PaymentForm({
             display: "flex",
             flexWrap: "wrap",
             gap: "10px",
-            maxHeight: isMobile ? "100px" : "110px",
+            maxHeight: isMobile ? "120px" : "110px",
             overflowY: "auto", // 溢れたらスクロールする
             width: "100%", // 横幅を固定する
             boxSizing: "border-box",
