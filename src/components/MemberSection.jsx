@@ -71,11 +71,13 @@ function MemberSection({
   };
 
   const scrollContainerStyle = {
+    flex: 1, // ボタンと入力欄以外のスペースを全部使う
     overflowY: "auto", // はみ出したらスクロール
     display: "flex",
     flexDirection: "column",
     gap: "10px",
     paddingRight: "5px",
+    paddingBottom: isMobile ? "80px" : "20px",
   };
 
   // クリアボタン
