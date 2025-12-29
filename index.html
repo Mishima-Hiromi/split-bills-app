@@ -13,5 +13,15 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./sw.js")
+            .then((reg) => console.log("Offline support ready!", reg))
+            .catch((err) => console.log("SW registration failed", err));
+        });
+      }
+    </script>
   </body>
 </html>
