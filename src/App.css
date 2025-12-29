@@ -44,3 +44,7 @@
 * {
   outline: 1px solid red !important;
 }
+
+* {
+  box-sizing: border-box; /* 枠線や余白を幅に含める設定 */
+}
