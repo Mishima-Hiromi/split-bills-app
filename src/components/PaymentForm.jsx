@@ -19,13 +19,12 @@ function PaymentForm({
     border: "1px solid #444",
     borderRadius: "12px",
     backgroundColor: "#222",
-    height: "100%",
-    minHeight: isMobile ? "350px" : "0",
+    height: "auto",
+    minHeight: "0",
     boxSizing: "border-box",
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
-    flexWrap: "wrap",
   };
   const inputStyle = {
     backgroundColor: "transparent",
@@ -57,7 +56,7 @@ function PaymentForm({
     borderRadius: "8px",
     fontWeight: "bold",
     cursor: "pointer",
-    marginTop: "auto",
+    marginTop: "20px",
   };
 
   const getSelectStyle = (isEmpty) => ({

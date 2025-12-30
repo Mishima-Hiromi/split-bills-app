@@ -22,7 +22,7 @@ function MemberSection({
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
-    maxHeight: isMobile ? "1000px" : "100%",
+    maxHeight: isMobile ? "450px" : "100%",
   };
 
   const inputStyle = {
@@ -73,10 +73,12 @@ function MemberSection({
   const scrollContainerStyle = {
     flex: "0 1 auto",
     overflowY: "auto", // はみ出したらスクロール
+    minHeight: 0,
     display: "flex",
     flexDirection: "column",
     gap: "10px",
     paddingRight: "5px",
+    paddingBottom: isMobile ? "10px" : "0",
   };
 
   // クリアボタン

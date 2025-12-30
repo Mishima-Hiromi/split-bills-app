@@ -136,10 +136,10 @@ function App() {
       flexDirection: isMobile ? "column" : "row",
       gridTemplateColumns: isMobile ? "none" : "1fr 1fr",
       gap: "24px",
-      alignItems: "stretch",
       height: isMobile ? "auto" : "420px",
       maxHeight: "none",
       overflow: "visible",
+      alignItems: isMobile ? "flex-start" : "stretch",
     },
     // 下段を縦に並べるためのコンテナ
     bottomColumn: {
