@@ -131,8 +131,9 @@ function MemberSection({
       >
         <input
           style={inputStyle}
-          placeholder="名前を入力"
+          placeholder="名前を入力(最大10文字)"
           value={nameInput}
+          maxlength={10}
           onChange={(e) => setNameInput(e.target.value)}
         />
         <div style={buttonGroupStyle}>
