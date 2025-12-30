@@ -138,8 +138,7 @@ function App() {
       gap: "24px",
       alignItems: "stretch",
       height: isMobile ? "auto" : "420px",
-      maxHeight: isMobile ? "950px" : "420px",
-      overflowY: "auto", // 縦方向に溢れたらスクロールバーを出す
+      maxHeight: isMobile ? "none" : "420px",
       overflowX: "hidden", // 横方向ははみ出させない
     },
     // 下段を縦に並べるためのコンテナ

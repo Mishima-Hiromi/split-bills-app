@@ -17,11 +17,12 @@ function MemberSection({
     border: "1px solid #444",
     borderRadius: "12px",
     backgroundColor: "#222",
-    height: "100%",
+    height: "auto",
     boxSizing: "border-box",
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
+    maxHeight: isMobile ? "400px" : "100%",
     minHeight: 0,
   };
 
@@ -71,13 +72,14 @@ function MemberSection({
   };
 
   const scrollContainerStyle = {
-    flex: 1, // ボタンと入力欄以外のスペースを全部使う
+    flex: isMobile ? "none" : 1,
+    height: "auto",
     overflowY: "auto", // はみ出したらスクロール
     display: "flex",
     flexDirection: "column",
     gap: "10px",
     paddingRight: "5px",
-    height: "100%",
+    paddingBottom: isMobile ? "10px" : "0",
   };
 
   // クリアボタン
