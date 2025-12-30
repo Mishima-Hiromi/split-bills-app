@@ -17,13 +17,12 @@ function MemberSection({
     border: "1px solid #444",
     borderRadius: "12px",
     backgroundColor: "#222",
-    height: "auto",
     boxSizing: "border-box",
+    height: "auto",
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
     maxHeight: isMobile ? "400px" : "100%",
-    minHeight: 0,
   };
 
   const inputStyle = {
@@ -72,14 +71,12 @@ function MemberSection({
   };
 
   const scrollContainerStyle = {
-    flex: isMobile ? "none" : 1,
-    height: "auto",
+    flex: "0 1 auto",
     overflowY: "auto", // はみ出したらスクロール
     display: "flex",
     flexDirection: "column",
     gap: "10px",
     paddingRight: "5px",
-    paddingBottom: isMobile ? "10px" : "0",
   };
 
   // クリアボタン
