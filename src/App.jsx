@@ -46,6 +46,12 @@ function App() {
   const addMember = () => {
     const trimmedName = nameInput.trim();
     if (!trimmedName) return;
+
+    if (trimmedName.length > 10) {
+      alert("名前は10文字以内で入力してください");
+      return;
+    }
+
     if (members.includes(trimmedName)) {
       alert("その名前は既に存在します");
       return;
