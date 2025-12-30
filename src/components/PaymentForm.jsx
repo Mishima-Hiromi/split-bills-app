@@ -56,7 +56,7 @@ function PaymentForm({
     borderRadius: "8px",
     fontWeight: "bold",
     cursor: "pointer",
-    marginTop: "20px",
+    marginTop: "auto",
   };
 
   const getSelectStyle = (isEmpty) => ({

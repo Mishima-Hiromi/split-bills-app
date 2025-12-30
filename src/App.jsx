@@ -139,7 +139,7 @@ function App() {
       height: isMobile ? "auto" : "420px",
       maxHeight: "none",
       overflow: "visible",
-      alignItems: isMobile ? "flex-start" : "stretch",
+      alignItems: isMobile ? "stretch" : "stretch",
     },
     // 下段を縦に並べるためのコンテナ
     bottomColumn: {

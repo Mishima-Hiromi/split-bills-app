@@ -22,7 +22,8 @@ function MemberSection({
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
-    maxHeight: isMobile ? "450px" : "100%",
+    width: "100%",
+    maxHeight: isMobile ? "460px" : "100%",
   };
 
   const inputStyle = {
