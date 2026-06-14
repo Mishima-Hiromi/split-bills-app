@@ -161,6 +161,10 @@ function MemberSection({
             .filter((p) => p.participants.includes(name))
             .reduce((sum, p) => sum + p.amount / p.participants.length, 0);
 
+          const diff = Math.round(paid - burden);
+          const diffColor = diff > 0 ? "#4caf50" : diff < 0 ? "#ff5252" : "#888";
+          const diffLabel = diff > 0 ? `+¥${diff.toLocaleString()}` : diff < 0 ? `-¥${Math.abs(diff).toLocaleString()}` : "±¥0";
+
           return (
             <div key={index} style={memberRowStyle}>
               <div style={{ flex: 1, fontWeight: "bold" }}>{name}</div>
@@ -179,6 +183,13 @@ function MemberSection({
 
                   <span style={{ color: "#ff5252" }}>
                     ¥{Math.round(burden).toLocaleString()}
+                  </span>
+                </div>
+
+                <div style={amountDetailStyle}>
+                  <span style={labelStyle}>差額</span>
+                  <span style={{ color: diffColor, fontWeight: "bold" }}>
+                    {diffLabel}
                   </span>
                 </div>
               </div>
