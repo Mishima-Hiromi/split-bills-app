@@ -47,11 +47,8 @@ function SettlementResult({ isMobile, members = [], payments = [] }) {
 
     text += "■各自の状況\n";
     stats.forEach((s) => {
-      text += `${
-        s.name
-      }\n  立て替え額: ¥${s.paid.toLocaleString()}\n  利用額: ¥${Math.round(
-        s.burden
-      ).toLocaleString()}\n`;
+      const jisshi = Math.abs(Math.round(s.paid - s.burden));
+      text += `${s.name}\n  立替: ¥${s.paid.toLocaleString()}  利用: ¥${Math.round(s.burden).toLocaleString()}  実費: ¥${jisshi.toLocaleString()}\n`;
     });
 
     text += "\n■精算方法\n";
