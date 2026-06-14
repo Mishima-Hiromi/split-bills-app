@@ -45,18 +45,28 @@ function MemberSection({
 
   const memberRowStyle = {
     display: "flex",
-    alignItems: "center",
+    alignItems: isMobile ? "flex-start" : "center",
+    flexDirection: isMobile ? "column" : "row",
     backgroundColor: "#333",
     padding: "10px 15px",
     borderRadius: "8px",
-    gap: "15px",
+    gap: isMobile ? "6px" : "15px",
+  };
+
+  const memberTopRowStyle = {
+    display: "flex",
+    alignItems: "center",
+    width: "100%",
+    gap: "10px",
   };
 
   const amountGroupStyle = {
     display: "flex",
-    gap: "20px",
+    gap: isMobile ? "12px" : "20px",
     fontSize: "0.85rem",
     textAlign: "right",
+    width: isMobile ? "100%" : "auto",
+    justifyContent: isMobile ? "space-between" : "flex-end",
   };
 
   const amountDetailStyle = { display: "flex", flexDirection: "column" };
@@ -165,36 +175,51 @@ function MemberSection({
 
           return (
             <div key={index} style={memberRowStyle}>
-              <div style={{ flex: 1, fontWeight: "bold" }}>{name}</div>
-
-              <div style={amountGroupStyle}>
-                <div style={amountDetailStyle}>
-                  <span style={labelStyle}>立て替え額</span>
-
-                  <span style={{ color: "#4caf50" }}>
-                    ¥{paid.toLocaleString()}
-                  </span>
-                </div>
-
-                <div style={amountDetailStyle}>
-                  <span style={labelStyle}>利用額</span>
-
-                  <span style={{ color: "#ff5252" }}>
-                    ¥{Math.round(burden).toLocaleString()}
-                  </span>
-                </div>
-
-                <div style={amountDetailStyle}>
-                  <span style={labelStyle}>差額</span>
-                  <span style={{ color: "#fbbf24" }}>
-                    ¥{diff.toLocaleString()}
-                  </span>
-                </div>
-              </div>
-
-              <button onClick={() => onDelete(index)} style={deleteBtnStyle}>
-                削除
-              </button>
+              {isMobile ? (
+                <>
+                  <div style={memberTopRowStyle}>
+                    <div style={{ flex: 1, fontWeight: "bold" }}>{name}</div>
+                    <button onClick={() => onDelete(index)} style={deleteBtnStyle}>
+                      削除
+                    </button>
+                  </div>
+                  <div style={amountGroupStyle}>
+                    <div style={amountDetailStyle}>
+                      <span style={labelStyle}>立替</span>
+                      <span style={{ color: "#4caf50" }}>¥{paid.toLocaleString()}</span>
+                    </div>
+                    <div style={amountDetailStyle}>
+                      <span style={labelStyle}>利用</span>
+                      <span style={{ color: "#ff5252" }}>¥{Math.round(burden).toLocaleString()}</span>
+                    </div>
+                    <div style={amountDetailStyle}>
+                      <span style={labelStyle}>実費</span>
+                      <span style={{ color: "#fbbf24" }}>¥{diff.toLocaleString()}</span>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div style={{ flex: 1, fontWeight: "bold" }}>{name}</div>
+                  <div style={amountGroupStyle}>
+                    <div style={amountDetailStyle}>
+                      <span style={labelStyle}>立替</span>
+                      <span style={{ color: "#4caf50" }}>¥{paid.toLocaleString()}</span>
+                    </div>
+                    <div style={amountDetailStyle}>
+                      <span style={labelStyle}>利用</span>
+                      <span style={{ color: "#ff5252" }}>¥{Math.round(burden).toLocaleString()}</span>
+                    </div>
+                    <div style={amountDetailStyle}>
+                      <span style={labelStyle}>実費</span>
+                      <span style={{ color: "#fbbf24" }}>¥{diff.toLocaleString()}</span>
+                    </div>
+                  </div>
+                  <button onClick={() => onDelete(index)} style={deleteBtnStyle}>
+                    削除
+                  </button>
+                </>
+              )}
             </div>
           );
         })}
