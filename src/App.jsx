@@ -61,14 +61,29 @@ function App() {
   };
 
   const deleteMember = (indexToDelete) => {
-    if (!window.confirm("このメンバーを削除しますか？")) return;
+    const name = members[indexToDelete];
+    const related = payments.filter(
+      (p) => p.payer === name || p.participants.includes(name)
+    );
+    const msg =
+      related.length > 0
+        ? `「${name}」を削除しますか？\nこのメンバーが関係する支払い記録 ${related.length} 件も同時に削除されます。`
+        : `「${name}」を削除しますか？`;
+    if (!window.confirm(msg)) return;
     setMembers(members.filter((_, i) => i !== indexToDelete));
+    if (related.length > 0) {
+      setPayments(
+        payments.filter(
+          (p) => p.payer !== name && !p.participants.includes(name)
+        )
+      );
+    }
   };
 
   const addPayment = () => {
-    const amount = parseInt(payAmount);
-    if (!payWho || !payTitle || isNaN(amount) || targetMembers.length === 0) {
-      alert("入力を確認してください（金額は数字で、対象者も1人以上必要です）");
+    const amount = Math.round(parseFloat(payAmount));
+    if (!payWho || !payTitle || isNaN(amount) || amount <= 0 || targetMembers.length === 0) {
+      alert("入力を確認してください（金額は1円以上の数字で、対象者も1人以上必要です）");
       return;
     }
 
