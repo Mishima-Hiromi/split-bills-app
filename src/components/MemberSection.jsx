@@ -12,6 +12,11 @@ function MemberSection({
 }) {
   // スタイル定義
 
+  // モバイル: 1行≒95px+gap10px、PC: 1行≒58px+gap10px で4人分まで非スクロール
+  const rowH = isMobile ? 95 : 58;
+  const scrollMaxHeight =
+    members.length <= 4 ? "none" : `${4 * rowH + 3 * 10}px`;
+
   const sectionStyle = {
     padding: "20px",
     border: "1px solid #444",
@@ -23,7 +28,6 @@ function MemberSection({
     flexDirection: "column",
     overflow: "hidden",
     width: "100%",
-    maxHeight: isMobile ? "460px" : "100%",
   };
 
   const inputStyle = {
@@ -82,9 +86,8 @@ function MemberSection({
   };
 
   const scrollContainerStyle = {
-    flex: "0 1 auto",
-    overflowY: "auto", // はみ出したらスクロール
-    minHeight: 0,
+    overflowY: members.length > 4 ? "auto" : "visible",
+    maxHeight: scrollMaxHeight,
     display: "flex",
     flexDirection: "column",
     gap: "10px",
